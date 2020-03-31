@@ -1,4 +1,4 @@
-## StyleGAN &mdash; Encoder for Official TensorFlow Implementation
+## StyleGAN 
 ![Python 3.6](https://img.shields.io/badge/python-3.6-green.svg?style=plastic)
 ![TensorFlow 1.10](https://img.shields.io/badge/tensorflow-1.10-green.svg?style=plastic)
 ![cuDNN 7.3.1](https://img.shields.io/badge/cudnn-7.3.1-green.svg?style=plastic)
@@ -15,8 +15,16 @@ Short explanation of encoding approach:
 3) Optimization is performed only for latent representation which we want to obtain. 
 4) Upon completion of optimization you are able to transform your latent vector as you wish. For example you can find a "smiling direction" in your latent space, move your latent vector in this direction and transform it back to image using the generator. 
 
-**New scripts for finding your own directions will be realised soon. For now you can play with existing ones: smiling, age, gender.**
-**More examples you can find in the [Jupyter notebook](https://github.com/Puzer/stylegan/blob/master/Play_with_latent_directions.ipynb)**
+
+### Runnable ipython Notebook
+**For now you can play with existing ones: smiling, age, gender.**
+**More examples you can find in the [Jupyter notebook](https://github.com/Yash0330/stylegan-encoder/blob/master/Explained_and_Experimented_with_StyleGAN.ipynb)**
+
+**Also try this [Jupyter notebook](https://github.com/Yash0330/stylegan-encoder/blob/master/Play_with_latent_directions.ipynb).**
+
+**For finding your own directions use this [Jupyter notebook](https://github.com/Yash0330/stylegan-encoder/blob/master/Learn_direction_in_latent_space.ipynb).**
+
+
 
 ### Generating latent representation of your images
 You can generate latent representations of your own images using two scripts:
@@ -26,28 +34,15 @@ You can generate latent representations of your own images using two scripts:
 2) Find latent representation of aligned images
 > python encode_images.py aligned_images/ generated_images/ latent_representations/
 
-3) Then you can play with [Jupyter notebook](https://github.com/Puzer/stylegan/blob/master/Play_with_latent_directions.ipynb)
+3) Then you can play with [Jupyter notebook](https://github.com/Yash0330/stylegan-encoder/blob/master/Explained_and_Experimented_with_StyleGAN.ipynb)
 
-Feel free to join the research. There is still much room for improvement:
-1) Better model for perceptual loss
-2) Is it possible to generate latent representations by using other model instead of direct optimization ? (WIP)
-
-Stay tuned!
-
-### Original Readme:
-This repository contains (no longer) official TensorFlow implementation of the following paper:
-
-
+You can refer the paper below:
 
 > **A Style-Based Generator Architecture for Generative Adversarial Networks**<br>
 > Tero Karras (NVIDIA), Samuli Laine (NVIDIA), Timo Aila (NVIDIA)<br>
 > http://stylegan.xyz/paper
 >
 > **Abstract:** *We propose an alternative generator architecture for generative adversarial networks, borrowing from style transfer literature. The new architecture leads to an automatically learned, unsupervised separation of high-level attributes (e.g., pose and identity when trained on human faces) and stochastic variation in the generated images (e.g., freckles, hair), and it enables intuitive, scale-specific control of the synthesis. The new generator improves the state-of-the-art in terms of traditional distribution quality metrics, leads to demonstrably better interpolation properties, and also better disentangles the latent factors of variation. To quantify interpolation quality and disentanglement, we propose two new, automated methods that are applicable to any generator architecture. Finally, we introduce a new, highly varied and high-quality dataset of human faces.*
-
-For business inquiries, please contact [researchinquiries@nvidia.com](mailto:researchinquiries@nvidia.com)
-
-For press and other inquiries, please contact Hector Marinez at [hmarinez@nvidia.com](mailto:hmarinez@nvidia.com)
 
 ## Resources
 
@@ -89,18 +84,6 @@ Additional material can be found in Google Drive folder:
 | &ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; [vgg16_zhang_perceptual.pkl](https://drive.google.com/uc?id=1N2-m9qszOeVC9Tq77WxsLnuWwOedQiD2) | Standard [LPIPS](https://arxiv.org/abs/1801.03924) metric to estimate perceptual similarity.
 | &ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; [celebahq-classifier-00-male.pkl](https://drive.google.com/uc?id=1Q5-AI6TwWhCVM7Muu4tBM7rp5nG_gmCX) | Binary classifier trained to detect a single attribute of CelebA-HQ.
 | &ensp;&ensp; &ensp;&ensp; &boxur;&nbsp;&#x22ef; | Please see the file listing for remaining networks.
-
-## Licenses
-
-All material, excluding the Flickr-Faces-HQ dataset, is made available under [Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license by NVIDIA Corporation. You can **use, redistribute, and adapt** the material for **non-commercial purposes**, as long as you give appropriate credit by **citing our paper** and **indicating any changes** that you've made.
-
-For license information regarding the FFHQ dataset, please refer to the [Flickr-Faces-HQ repository](http://stylegan.xyz/ffhq).
-
-`inception_v3_features.pkl` and `inception_v3_softmax.pkl` are derived from the pre-trained [Inception-v3](https://arxiv.org/abs/1512.00567) network by Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jonathon Shlens, and Zbigniew Wojna. The network was originally shared under [Apache 2.0](https://github.com/tensorflow/models/blob/master/LICENSE) license on the [TensorFlow Models](https://github.com/tensorflow/models) repository.
-
-`vgg16.pkl` and `vgg16_zhang_perceptual.pkl` are derived from the pre-trained [VGG-16](https://arxiv.org/abs/1409.1556) network by Karen Simonyan and Andrew Zisserman. The network was originally shared under [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/) license on the [Very Deep Convolutional Networks for Large-Scale Visual Recognition](http://www.robots.ox.ac.uk/~vgg/research/very_deep/) project page.
-
-`vgg16_zhang_perceptual.pkl` is further derived from the pre-trained [LPIPS](https://arxiv.org/abs/1801.03924) weights by Richard Zhang, Phillip Isola, Alexei A. Efros, Eli Shechtman, and Oliver Wang. The weights were originally shared under [BSD 2-Clause "Simplified" License](https://github.com/richzhang/PerceptualSimilarity/blob/master/LICENSE) on the [PerceptualSimilarity](https://github.com/richzhang/PerceptualSimilarity) repository.
 
 ## System requirements
 
@@ -259,6 +242,3 @@ Expected evaluation time and results for the pre-trained FFHQ generator using on
 
 Please note that the exact results may vary from run to run due to the non-deterministic nature of TensorFlow.
 
-## Acknowledgements
-
-We thank Jaakko Lehtinen, David Luebke, and Tuomas Kynk&auml;&auml;nniemi for in-depth discussions and helpful comments; Janne Hellsten, Tero Kuosmanen, and Pekka J&auml;nis for compute infrastructure and help with the code release.
